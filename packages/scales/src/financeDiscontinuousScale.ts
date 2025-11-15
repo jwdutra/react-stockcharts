@@ -93,7 +93,6 @@ export default function financeDiscontinuousScale(index: any[], backingLinearSca
 
             const d = Math.abs(index[0].index);
 
-            // ignore ticks within this distance
             const distance = Math.ceil(
                 (backingTicks.length > 0
                     ? (backingTicks[backingTicks.length - 1] - backingTicks[0]) / backingTicks.length / 4
@@ -116,11 +115,20 @@ export default function financeDiscontinuousScale(index: any[], backingLinearSca
 
         return ticks;
     };
-    scale.tickFormat = () => {
+    scale.tickFormat = (timezone?: string) => {
         return function (x: any) {
             const d = Math.abs(index[0].index);
-            const { format, date } = index[Math.floor(x + d)];
-            return format(date);
+            const item = index[Math.floor(x + d)];
+            const { formatFunction, format, date } = item;
+
+            if (formatFunction && typeof formatFunction === "function") {
+                return formatFunction(date, timezone);
+            }
+
+            if (timezone && typeof format === "function") {
+                return format(date, timezone);
+            }
+            return typeof format === "function" ? format(date) : format;
         };
     };
     scale.value = (x: any) => {

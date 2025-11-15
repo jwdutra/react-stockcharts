@@ -208,12 +208,16 @@ const tickHelper = (props: AxisProps, scale: ScaleContinuousNumeric<number, numb
         tickValues = scale.domain();
     }
 
-    const format =
-        tickFormat === undefined
-            ? scale.tickFormat(tickArguments)
-            : timezone
-            ? (d: any) => tickFormat(d, timezone) || ""
-            : (d: any) => tickFormat(d) || "";
+    let format: (d: any) => string;
+    if (tickFormat === undefined) {
+        if (timezone) {
+            format = (scale.tickFormat as any)(timezone);
+        } else {
+            format = scale.tickFormat(tickArguments);
+        }
+    } else {
+        format = timezone ? (d: any) => tickFormat(d, timezone) || "" : (d: any) => tickFormat(d) || "";
+    }
 
     const sign = orient === "top" || orient === "left" ? -1 : 1;
     const tickSpacing = Math.max(innerTickSize, 0) + tickPadding;

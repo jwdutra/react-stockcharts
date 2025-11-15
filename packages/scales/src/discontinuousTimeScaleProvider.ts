@@ -1,7 +1,8 @@
 import { slidingWindow, zipper } from "@react-stockcharts3/core";
-import { timeFormat, timeFormatDefaultLocale } from "d3-time-format";
+import { timeFormat as d3TimeFormat, timeFormatDefaultLocale } from "d3-time-format";
 import financeDiscontinuousScale from "./financeDiscontinuousScale";
 import { defaultFormatters, levelDefinition, IFormatters } from "./levels";
+import { timeFormat } from "./timeFormat";
 
 const evaluateLevel = (row: any, date: Date, i: number, formatters: IFormatters) => {
     return levelDefinition
@@ -123,12 +124,19 @@ function createIndex(realDateAccessor: any, inputDateAccessor: any, initialIndex
         const calculate = discontinuousIndexCalculatorLocalTime.source(dateAccessor).misc({ initialIndex, formatters });
 
         const index = calculate(data).map((each) => {
-            const { format } = each;
+            const { format: formatString } = each;
             return {
                 index: each.index,
                 level: each.level,
                 date: new Date(each.date),
-                format: timeFormat(format),
+                format: formatString,
+                // Store a formatter function that can accept timezone
+                formatFunction: (date: Date, timezone?: string) => {
+                    if (timezone) {
+                        return timeFormat(date, timezone);
+                    }
+                    return d3TimeFormat(formatString)(date);
+                },
             };
         });
 

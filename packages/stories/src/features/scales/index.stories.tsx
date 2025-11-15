@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { scaleLog, scaleUtc } from "d3-scale";
 import { Daily } from "./Scales";
+import { TimezoneExample } from "./TimezoneExample";
+import { TimezoneDiscontinuousExample } from "./TimezoneDiscontinuousExample";
 
 const meta: Meta<typeof Daily> = {
     title: "Features/Scales",
@@ -22,14 +24,46 @@ export const logScale: Story = {
     render: () => <Daily yScale={scaleLog()} />,
 };
 
-export const timezoneNewYork: Story = {
-    render: () => <Daily timezone="America/New_York" />,
+type TimezoneStory = StoryObj<typeof TimezoneExample>;
+
+export const timezoneUTC: TimezoneStory = {
+    name: "Timezone UTC (scaleTime)",
+    render: () => <TimezoneExample timezone="UTC" />,
 };
 
-export const timezoneTokyo: Story = {
-    render: () => <Daily timezone="Asia/Tokyo" />,
+export const timezoneNewYork: TimezoneStory = {
+    name: "Timezone New York (scaleTime)",
+    render: () => <TimezoneExample timezone="America/New_York" />,
 };
 
-export const timezoneLondon: Story = {
-    render: () => <Daily timezone="Europe/London" />,
+export const timezoneTokyo: TimezoneStory = {
+    name: "Timezone Tokyo (scaleTime)",
+    render: () => <TimezoneExample timezone="Asia/Tokyo" />,
+};
+
+export const timezoneLondon: TimezoneStory = {
+    name: "Timezone London (scaleTime)",
+    render: () => <TimezoneExample timezone="Europe/London" />,
+};
+
+type TimezoneDiscontinuousStory = StoryObj<typeof TimezoneDiscontinuousExample>;
+
+export const timezoneDiscontinuousUTC: TimezoneDiscontinuousStory = {
+    name: "Timezone UTC (Discontinuous)",
+    render: () => <TimezoneDiscontinuousExample timezone="UTC" />,
+};
+
+export const timezoneDiscontinuousNewYork: TimezoneDiscontinuousStory = {
+    name: "Timezone New York (Discontinuous)",
+    render: () => <TimezoneDiscontinuousExample timezone="America/New_York" />,
+};
+
+export const timezoneDiscontinuousTokyo: TimezoneDiscontinuousStory = {
+    name: "Timezone Tokyo (Discontinuous)",
+    render: () => <TimezoneDiscontinuousExample timezone="Asia/Tokyo" />,
+};
+
+export const timezoneDiscontinuousLondon: TimezoneDiscontinuousStory = {
+    name: "Timezone London (Discontinuous)",
+    render: () => <TimezoneDiscontinuousExample timezone="Europe/London" />,
 };
