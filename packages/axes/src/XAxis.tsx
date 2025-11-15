@@ -24,7 +24,7 @@ export interface XAxisProps<T extends number | Date> {
     readonly showTickLabel?: boolean;
     readonly strokeStyle?: string;
     readonly strokeWidth?: number;
-    readonly tickFormat?: (value: T) => string;
+    readonly tickFormat?: (value: T, timezone?: string) => string;
     readonly tickPadding?: number;
     readonly tickSize?: number;
     readonly tickLabelFill?: string;
@@ -86,9 +86,7 @@ export class XAxis<T extends number | Date> extends React.Component<XAxisProps<T
         const { ...moreProps } = this.helper();
 
         // Wrap tickFormat to include timezone if provided
-        const finalTickFormat = timezone && tickFormat
-            ? (value: T) => tickFormat(value, timezone as any)
-            : tickFormat;
+        const finalTickFormat = timezone && tickFormat ? (value: T) => tickFormat(value, timezone as any) : tickFormat;
 
         return (
             <Axis

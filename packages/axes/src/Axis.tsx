@@ -41,7 +41,7 @@ interface AxisProps {
     readonly showTickLabel?: boolean;
     readonly strokeStyle: string;
     readonly strokeWidth: number;
-    readonly tickFormat?: (data: any) => string;
+    readonly tickFormat?: (data: any, timezone?: string) => string;
     readonly tickPadding?: number;
     readonly tickSize?: number;
     readonly ticks?: number;
@@ -208,7 +208,12 @@ const tickHelper = (props: AxisProps, scale: ScaleContinuousNumeric<number, numb
         tickValues = scale.domain();
     }
 
-    const format = tickFormat === undefined ? scale.tickFormat(tickArguments) : (d: any) => tickFormat(d, timezone) || "";
+    const format =
+        tickFormat === undefined
+            ? scale.tickFormat(tickArguments)
+            : timezone
+            ? (d: any) => tickFormat(d, timezone) || ""
+            : (d: any) => tickFormat(d) || "";
 
     const sign = orient === "top" || orient === "left" ? -1 : 1;
     const tickSpacing = Math.max(innerTickSize, 0) + tickPadding;

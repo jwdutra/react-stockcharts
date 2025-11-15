@@ -81,14 +81,12 @@ class LoadingChart extends React.Component<ChartProps, ChartState> {
         const earliestCurrent = currentData[0].date;
 
         // Find data points before the current earliest
-        const newDataPoints = fullData.filter(
-            d => d.date < earliestCurrent && d.date >= start
-        );
+        const newDataPoints = fullData.filter((d) => d.date < earliestCurrent && d.date >= start);
 
         if (newDataPoints.length > 0) {
             // Simulate network delay
             setTimeout(() => {
-                this.setState(prevState => ({
+                this.setState((prevState) => ({
                     data: [...newDataPoints, ...prevState.data],
                 }));
                 console.log(`Loaded ${newDataPoints.length} earlier data points`);
@@ -106,14 +104,12 @@ class LoadingChart extends React.Component<ChartProps, ChartState> {
         const latestCurrent = currentData[currentData.length - 1].date;
 
         // Find data points after the current latest
-        const newDataPoints = fullData.filter(
-            d => d.date > latestCurrent && d.date <= end
-        );
+        const newDataPoints = fullData.filter((d) => d.date > latestCurrent && d.date <= end);
 
         if (newDataPoints.length > 0) {
             // Simulate network delay
             setTimeout(() => {
-                this.setState(prevState => ({
+                this.setState((prevState) => ({
                     data: [...prevState.data, ...newDataPoints],
                 }));
                 console.log(`Loaded ${newDataPoints.length} later data points`);
@@ -159,6 +155,4 @@ class LoadingChart extends React.Component<ChartProps, ChartState> {
     };
 }
 
-export const Loading = withOHLCData("DAILY")(
-    withSize({ style: { minHeight: 600 } })(withDeviceRatio()(LoadingChart))
-);
+export const Loading = withOHLCData("DAILY")(withSize({ style: { minHeight: 600 } })(withDeviceRatio()(LoadingChart)));

@@ -98,7 +98,7 @@ class LoadingChartDiscontinuous extends React.Component<ChartProps, ChartState> 
         const earliestCurrent = currentData[0].date;
 
         // Find all data points before the current earliest
-        const candidatePoints = this.fullData.filter(d => d.date < earliestCurrent);
+        const candidatePoints = this.fullData.filter((d) => d.date < earliestCurrent);
 
         if (candidatePoints.length === 0) {
             console.log("No more data to load before");
@@ -142,7 +142,7 @@ class LoadingChartDiscontinuous extends React.Component<ChartProps, ChartState> 
         const latestCurrent = currentData[currentData.length - 1].date;
 
         // Find all data points after the current latest
-        const candidatePoints = this.fullData.filter(d => d.date > latestCurrent);
+        const candidatePoints = this.fullData.filter((d) => d.date > latestCurrent);
 
         if (candidatePoints.length === 0) {
             console.log("No more data to load after");
@@ -213,5 +213,5 @@ class LoadingChartDiscontinuous extends React.Component<ChartProps, ChartState> 
 }
 
 export const LoadingDiscontinuous = withOHLCData("DAILY")(
-    withSize({ style: { minHeight: 600 } })(withDeviceRatio()(LoadingChartDiscontinuous))
+    withSize({ style: { minHeight: 600 } })(withDeviceRatio()(LoadingChartDiscontinuous)),
 );
