@@ -4,7 +4,6 @@ import financeDiscontinuousScale from "./financeDiscontinuousScale";
 import { defaultFormatters, levelDefinition, IFormatters } from "./levels";
 import { format as formatTz, toZonedTime } from "date-fns-tz";
 
-// Convert d3 time format strings to date-fns format strings
 const convertD3FormatToDateFns = (d3Format: string): string => {
     return d3Format
         .replace("%Y", "yyyy") // Year
@@ -149,19 +148,31 @@ function createIndex(realDateAccessor: any, inputDateAccessor: any, initialIndex
 
         const index = calculate(data).map((each) => {
             const { format: formatString } = each;
+
+            const dateObj = new Date(each.date);
+
+            const validDate = isNaN(dateObj.getTime()) ? new Date(0) : dateObj;
+
             return {
                 index: each.index,
                 level: each.level,
-                date: new Date(each.date),
+                date: validDate,
                 format: formatString,
-                // Store a formatter function that can accept timezone
+
                 formatFunction: (date: Date, timezone?: string) => {
-                    if (timezone) {
-                        // Convert date to target timezone
-                        const zonedDate = toZonedTime(date, timezone);
-                        // Convert d3 format to date-fns format and apply
-                        const dateFnsFormat = convertD3FormatToDateFns(formatString);
-                        return formatTz(zonedDate, dateFnsFormat, { timeZone: timezone });
+                    if (!date || isNaN(date.getTime())) {
+                        return "";
+                    }
+
+                    if (timezone && typeof timezone === "string" && timezone.trim() !== "") {
+                        try {
+                            const zonedDate = toZonedTime(date, timezone);
+
+                            const dateFnsFormat = convertD3FormatToDateFns(formatString);
+                            return formatTz(zonedDate, dateFnsFormat, { timeZone: timezone });
+                        } catch (error) {
+                            return d3TimeFormat(formatString)(date);
+                        }
                     }
                     return d3TimeFormat(formatString)(date);
                 },
@@ -267,7 +278,7 @@ export function discontinuousTimeScaleProviderBuilder() {
     discontinuousTimeScaleProvider.utc = () => {
         realDateAccessor = (dateAccessor) => (d: any) => {
             const date = dateAccessor(d);
-            // The getTimezoneOffset() method returns the time-zone offset from UTC, in minutes, for the current locale.
+
             const offsetInMillis = date.getTimezoneOffset() * 60 * 1000;
             return new Date(date.getTime() + offsetInMillis);
         };

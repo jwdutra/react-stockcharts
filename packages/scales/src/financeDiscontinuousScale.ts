@@ -119,6 +119,11 @@ export default function financeDiscontinuousScale(index: any[], backingLinearSca
         return function (x: any) {
             const d = Math.abs(index[0].index);
             const item = index[Math.floor(x + d)];
+
+            if (!item) {
+                return "";
+            }
+
             const { formatFunction, format, date } = item;
 
             if (formatFunction && typeof formatFunction === "function") {
