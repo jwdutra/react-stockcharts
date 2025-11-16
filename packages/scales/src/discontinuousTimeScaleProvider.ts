@@ -2,7 +2,31 @@ import { slidingWindow, zipper } from "@react-stockcharts3/core";
 import { timeFormat as d3TimeFormat, timeFormatDefaultLocale } from "d3-time-format";
 import financeDiscontinuousScale from "./financeDiscontinuousScale";
 import { defaultFormatters, levelDefinition, IFormatters } from "./levels";
-import { timeFormat } from "./timeFormat";
+import { format as formatTz, toZonedTime } from "date-fns-tz";
+
+// Convert d3 time format strings to date-fns format strings
+const convertD3FormatToDateFns = (d3Format: string): string => {
+    return d3Format
+        .replace("%Y", "yyyy") // Year
+        .replace("%y", "yy") // 2-digit year
+        .replace("%B", "MMMM") // Full month name
+        .replace("%b", "MMM") // Abbreviated month name
+        .replace("%m", "MM") // Month number
+        .replace("%d", "dd") // Day of month
+        .replace("%e", "d") // Day of month (no leading zero)
+        .replace("%H", "HH") // Hour (24-hour)
+        .replace("%I", "hh") // Hour (12-hour)
+        .replace("%M", "mm") // Minutes
+        .replace("%S", "ss") // Seconds
+        .replace("%L", "SSS") // Milliseconds
+        .replace("%p", "a") // AM/PM
+        .replace("%A", "EEEE") // Full day name
+        .replace("%a", "EEE") // Abbreviated day name
+        .replace("%w", "e") // Day of week (numeric)
+        .replace("%j", "DDD") // Day of year
+        .replace("%U", "ww") // Week number
+        .replace("%W", "ww"); // Week number
+};
 
 const evaluateLevel = (row: any, date: Date, i: number, formatters: IFormatters) => {
     return levelDefinition
@@ -133,7 +157,11 @@ function createIndex(realDateAccessor: any, inputDateAccessor: any, initialIndex
                 // Store a formatter function that can accept timezone
                 formatFunction: (date: Date, timezone?: string) => {
                     if (timezone) {
-                        return timeFormat(date, timezone);
+                        // Convert date to target timezone
+                        const zonedDate = toZonedTime(date, timezone);
+                        // Convert d3 format to date-fns format and apply
+                        const dateFnsFormat = convertD3FormatToDateFns(formatString);
+                        return formatTz(zonedDate, dateFnsFormat, { timeZone: timezone });
                     }
                     return d3TimeFormat(formatString)(date);
                 },
