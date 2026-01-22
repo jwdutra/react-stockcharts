@@ -13,7 +13,7 @@ import {
 } from "@react-stockcharts3/core";
 import { mean } from "d3-array";
 import { ScaleContinuousNumeric } from "d3-scale";
-import { select, pointer } from "d3-selection";
+import { select, pointer, pointers } from "d3-selection";
 import * as React from "react";
 import { flushSync } from "react-dom";
 
@@ -76,6 +76,7 @@ export class AxisZoomCapture extends React.Component<AxisZoomCaptureProps, AxisZ
                 opacity={0}
                 height={bg.h}
                 width={bg.w}
+                style={{ touchAction: "none" }}
                 onContextMenu={this.handleRightClick}
                 onMouseDown={this.handleDragStartMouse}
                 onTouchStart={this.handleDragStartTouch}
@@ -125,7 +126,8 @@ export class AxisZoomCapture extends React.Component<AxisZoomCaptureProps, AxisZ
             const { startScale } = startPosition;
             const { startXY } = startPosition;
 
-            const mouseXY = pointer(e, container);
+            const isTouchEvent = e.touches !== undefined;
+            const mouseXY = isTouchEvent ? pointers(e, container)[0] : pointer(e, container);
 
             const diff = getMouseDelta(startXY, mouseXY);
 
@@ -155,6 +157,8 @@ export class AxisZoomCapture extends React.Component<AxisZoomCaptureProps, AxisZ
     };
 
     private readonly handleDragStartTouch = (event: React.TouchEvent<SVGRectElement>) => {
+        event.preventDefault();
+
         const container = this.ref.current;
         if (container === null) {
             return;
