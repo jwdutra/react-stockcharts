@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { atr } from "@react-stockcharts3/indicators";
+import { atr } from "@jwdutra/indicators";
 import ATRIndicator from "./AtrIndicator";
 
 const meta: Meta<typeof atr> = {

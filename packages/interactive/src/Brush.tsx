@@ -4,7 +4,7 @@ import {
     getMouseCanvas,
     GenericChartComponent,
     strokeDashTypes,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 
 interface BrushProps {
     readonly enabled: boolean;

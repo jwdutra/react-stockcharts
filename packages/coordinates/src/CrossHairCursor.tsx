@@ -6,7 +6,7 @@ import {
     getMouseCanvas,
     ChartCanvasContext,
     ChartCanvasContextType,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 
 const defaultCustomX = (props: CrossHairCursorProps, moreProps: any) => {
     const { xScale, xAccessor, currentItem, mouseXY } = moreProps;

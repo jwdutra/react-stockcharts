@@ -6,9 +6,9 @@ import {
     isDefined,
     noop,
     shallowEqual,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 import * as React from "react";
-import { getXValue } from "@react-stockcharts3/core/lib/utils/ChartDataUtil";
+import { getXValue } from "@jwdutra/core/lib/utils/ChartDataUtil";
 
 export interface MouseLocationIndicatorProps {
     readonly enabled: boolean;

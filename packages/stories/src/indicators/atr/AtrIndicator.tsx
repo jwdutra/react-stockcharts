@@ -11,7 +11,7 @@ import {
     YAxis,
     withDeviceRatio,
     withSize,
-} from "react-stockcharts3";
+} from "@jwdutra/react-stockcharts";
 import { IOHLCData, withOHLCData } from "../../data";
 
 interface ChartProps {

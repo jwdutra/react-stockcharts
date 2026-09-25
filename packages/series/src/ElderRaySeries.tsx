@@ -1,4 +1,4 @@
-import { strokeDashTypes } from "@react-stockcharts3/core";
+import { strokeDashTypes } from "@jwdutra/core";
 import * as React from "react";
 import { OverlayBarSeries } from "./OverlayBarSeries";
 import { StraightLine } from "./StraightLine";

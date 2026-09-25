@@ -1,5 +1,5 @@
 import * as React from "react";
-import { isDefined, isNotDefined, getMouseCanvas, GenericChartComponent } from "@react-stockcharts3/core";
+import { isDefined, isNotDefined, getMouseCanvas, GenericChartComponent } from "@jwdutra/core";
 import { generateLine, isHovering } from "./InteractiveStraightLine";
 
 export interface ChannelWithAreaProps {

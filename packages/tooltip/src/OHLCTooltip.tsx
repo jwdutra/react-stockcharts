@@ -1,4 +1,4 @@
-import { functor, GenericChartComponent, last } from "@react-stockcharts3/core";
+import { functor, GenericChartComponent, last } from "@jwdutra/core";
 import { format } from "d3-format";
 import * as React from "react";
 import { ToolTipText } from "./ToolTipText";

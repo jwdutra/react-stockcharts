@@ -8,7 +8,7 @@ import {
     last,
     noop,
     strokeDashTypes,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 import { drawOnCanvas } from "./EdgeCoordinateV3";
 
 export interface EdgeIndicatorProps {

@@ -8,7 +8,7 @@ import {
     LineSeries,
     withDeviceRatio,
     withSize,
-} from "react-stockcharts3";
+} from "@jwdutra/react-stockcharts";
 import { IOHLCData } from "../../data";
 
 interface ChartProps {

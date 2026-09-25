@@ -1,4 +1,4 @@
-import { functor, head, getAxisCanvas, GenericChartComponent, plotDataLengthBarWidth } from "@react-stockcharts3/core";
+import { functor, head, getAxisCanvas, GenericChartComponent, plotDataLengthBarWidth } from "@jwdutra/core";
 import { group } from "d3-array";
 import { ScaleContinuousNumeric, ScaleTime } from "d3-scale";
 import * as React from "react";

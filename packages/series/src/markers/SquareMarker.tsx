@@ -1,5 +1,5 @@
 import * as React from "react";
-import { functor } from "@react-stockcharts3/core";
+import { functor } from "@jwdutra/core";
 
 export interface SquareProps {
     readonly className?: string;

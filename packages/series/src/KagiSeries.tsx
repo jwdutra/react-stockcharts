@@ -1,5 +1,5 @@
 import * as React from "react";
-import { isDefined, isNotDefined, getAxisCanvas, GenericChartComponent } from "@react-stockcharts3/core";
+import { isDefined, isNotDefined, getAxisCanvas, GenericChartComponent } from "@jwdutra/core";
 
 export interface KagiSeriesProps {
     /**

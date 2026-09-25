@@ -1,4 +1,4 @@
-import { getStrokeDasharray, getStrokeDasharrayCanvas, isDefined } from "@react-stockcharts3/core";
+import { getStrokeDasharray, getStrokeDasharrayCanvas, isDefined } from "@jwdutra/core";
 
 export const renderSVG = (props: any) => {
     const { className } = props;

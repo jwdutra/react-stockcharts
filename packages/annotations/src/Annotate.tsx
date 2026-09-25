@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GenericChartComponent } from "@react-stockcharts3/core";
+import { GenericChartComponent } from "@jwdutra/core";
 
 export interface AnnotateProps {
     readonly className?: string;

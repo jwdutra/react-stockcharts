@@ -1,5 +1,5 @@
 import * as React from "react";
-import { getMouseCanvas, GenericChartComponent } from "@react-stockcharts3/core";
+import { getMouseCanvas, GenericChartComponent } from "@jwdutra/core";
 
 interface MouseCoordinateXV2Props {
     readonly at?: "bottom" | "top";

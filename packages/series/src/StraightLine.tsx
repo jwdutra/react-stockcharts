@@ -5,7 +5,7 @@ import {
     getStrokeDasharrayCanvas,
     GenericChartComponent,
     strokeDashTypes,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 
 export interface StraightLineProps {
     readonly lineDash?: strokeDashTypes | number[];

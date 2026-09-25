@@ -1,6 +1,6 @@
 import { deviation, sum, zip } from "d3-array";
 import * as React from "react";
-import { getClosestItemIndexes, getMouseCanvas, GenericChartComponent } from "@react-stockcharts3/core";
+import { getClosestItemIndexes, getMouseCanvas, GenericChartComponent } from "@jwdutra/core";
 import { isHovering2 } from "./InteractiveStraightLine";
 
 export interface LinearRegressionChannelWithAreaProps {

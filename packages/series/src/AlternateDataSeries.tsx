@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChartCanvasContext } from "@react-stockcharts3/core";
+import { ChartCanvasContext } from "@jwdutra/core";
 
 export interface AlternateDataSeriesProps<TData> {
     readonly data: TData[];

@@ -1,4 +1,4 @@
-import { strokeDashTypes } from "@react-stockcharts3/core";
+import { strokeDashTypes } from "@jwdutra/core";
 import { ScaleContinuousNumeric } from "d3-scale";
 import { CurveFactory } from "d3-shape";
 import { Component } from "react";

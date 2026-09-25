@@ -1,6 +1,6 @@
 import { ScaleContinuousNumeric } from "d3-scale";
 import * as React from "react";
-import { isDefined, getAxisCanvas, GenericChartComponent } from "@react-stockcharts3/core";
+import { isDefined, getAxisCanvas, GenericChartComponent } from "@jwdutra/core";
 
 export interface RenkoSeriesProps {
     readonly clip?: boolean;

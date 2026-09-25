@@ -4,7 +4,7 @@ import {
     GenericChartComponent,
     noop,
     strokeDashTypes,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 import * as React from "react";
 
 export interface StraightLineProps {

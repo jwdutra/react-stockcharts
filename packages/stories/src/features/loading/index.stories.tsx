@@ -48,7 +48,7 @@ These callbacks enable **infinite scrolling** by loading more data when users pa
 ## ⚠️ discontinuousTimeScaleProvider + pan-to-load = Bug
 
 Using \`discontinuousTimeScaleProvider\` with \`.initialIndex()\` and pan-to-load causes viewport jumping.
-This is a fundamental bug in react-stockcharts3's \`ChartCanvas.getDerivedStateFromProps\`.
+This is a fundamental bug in @jwdutra/react-stockcharts's \`ChartCanvas.getDerivedStateFromProps\`.
 
 See \`PAN_TO_LOAD_IMPLEMENTATION.md\` for full technical analysis.
 

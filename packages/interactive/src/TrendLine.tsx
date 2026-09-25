@@ -1,5 +1,5 @@
 import * as React from "react";
-import { isDefined, isNotDefined, noop, strokeDashTypes } from "@react-stockcharts3/core";
+import { isDefined, isNotDefined, noop, strokeDashTypes } from "@jwdutra/core";
 import { getValueFromOverride, isHoverForInteractiveType, saveNodeType, terminate } from "./utils";
 import { HoverTextNearMouse, MouseLocationIndicator, InteractiveStraightLine } from "./components";
 import { EachTrendLine } from "./wrapper";

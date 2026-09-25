@@ -10,7 +10,7 @@ import {
     TOUCHEND,
     TOUCHMOVE,
     touchPosition,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 import { mean } from "d3-array";
 import { ScaleContinuousNumeric } from "d3-scale";
 import { select, pointer, pointers } from "d3-selection";

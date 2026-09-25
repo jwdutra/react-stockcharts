@@ -1,5 +1,5 @@
 import * as React from "react";
-import { first, getAxisCanvas, getMouseCanvas, GenericChartComponent, last } from "@react-stockcharts3/core";
+import { first, getAxisCanvas, getMouseCanvas, GenericChartComponent, last } from "@jwdutra/core";
 
 export interface SARSeriesProps {
     readonly fillStyle?: {

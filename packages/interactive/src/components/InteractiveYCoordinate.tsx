@@ -1,12 +1,12 @@
 import * as React from "react";
-import { drawOnCanvas } from "@react-stockcharts3/coordinates/lib/EdgeCoordinateV3";
-import { getYCoordinate } from "@react-stockcharts3/coordinates/lib/MouseCoordinateY";
+import { drawOnCanvas } from "@jwdutra/coordinates/lib/EdgeCoordinateV3";
+import { getYCoordinate } from "@jwdutra/coordinates/lib/MouseCoordinateY";
 import {
     getStrokeDasharrayCanvas,
     getMouseCanvas,
     GenericChartComponent,
     strokeDashTypes,
-} from "@react-stockcharts3/core";
+} from "@jwdutra/core";
 
 export interface InteractiveYCoordinateProps {
     readonly bgFillStyle: string;

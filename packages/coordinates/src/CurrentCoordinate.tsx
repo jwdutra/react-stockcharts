@@ -1,4 +1,4 @@
-import { getMouseCanvas, GenericChartComponent } from "@react-stockcharts3/core";
+import { getMouseCanvas, GenericChartComponent } from "@jwdutra/core";
 import * as React from "react";
 
 export interface CurrentCoordinateProps {

@@ -1,6 +1,6 @@
 import { group } from "d3-array";
 import * as React from "react";
-import { functor, isDefined, getAxisCanvas, GenericChartComponent } from "@react-stockcharts3/core";
+import { functor, isDefined, getAxisCanvas, GenericChartComponent } from "@jwdutra/core";
 
 interface IOHLC {
     readonly close?: number;

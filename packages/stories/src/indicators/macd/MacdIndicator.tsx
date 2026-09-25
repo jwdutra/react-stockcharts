@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Chart, ChartCanvas } from "@react-stockcharts3/core";
-import { XAxis, YAxis } from "@react-stockcharts3/axes";
-import { macd } from "@react-stockcharts3/indicators";
-import { discontinuousTimeScaleProviderBuilder } from "@react-stockcharts3/scales";
-import { MACDSeries } from "@react-stockcharts3/series";
-import { MACDTooltip } from "@react-stockcharts3/tooltip";
+import { Chart, ChartCanvas } from "@jwdutra/core";
+import { XAxis, YAxis } from "@jwdutra/axes";
+import { macd } from "@jwdutra/indicators";
+import { discontinuousTimeScaleProviderBuilder } from "@jwdutra/scales";
+import { MACDSeries } from "@jwdutra/series";
+import { MACDTooltip } from "@jwdutra/tooltip";
 import { IOHLCData, withOHLCData } from "../../data";
-import { withDeviceRatio, withSize } from "@react-stockcharts3/utils";
+import { withDeviceRatio, withSize } from "@jwdutra/utils";
 
 interface ChartProps {
     readonly data: IOHLCData[];

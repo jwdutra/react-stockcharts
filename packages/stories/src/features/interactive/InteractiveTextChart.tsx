@@ -2,13 +2,13 @@
 import * as React from "react";
 import { format } from "d3-format";
 import { timeFormat } from "d3-time-format";
-import { ChartCanvas, Chart } from "@react-stockcharts3/core";
-import { XAxis, YAxis } from "@react-stockcharts3/axes";
-import { CandlestickSeries } from "@react-stockcharts3/series";
-import { CrossHairCursor, MouseCoordinateX, MouseCoordinateY } from "@react-stockcharts3/coordinates";
-import { discontinuousTimeScaleProvider } from "@react-stockcharts3/scales";
-import { InteractiveText, DrawingObjectSelector } from "@react-stockcharts3/interactive";
-import { withSize, withDeviceRatio } from "@react-stockcharts3/utils";
+import { ChartCanvas, Chart } from "@jwdutra/core";
+import { XAxis, YAxis } from "@jwdutra/axes";
+import { CandlestickSeries } from "@jwdutra/series";
+import { CrossHairCursor, MouseCoordinateX, MouseCoordinateY } from "@jwdutra/coordinates";
+import { discontinuousTimeScaleProvider } from "@jwdutra/scales";
+import { InteractiveText, DrawingObjectSelector } from "@jwdutra/interactive";
+import { withSize, withDeviceRatio } from "@jwdutra/utils";
 import { IOHLCData, withOHLCData } from "../../data";
 
 interface InteractiveTextChartProps {

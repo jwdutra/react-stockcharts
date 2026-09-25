@@ -1,4 +1,4 @@
-import { functor } from "@react-stockcharts3/core";
+import { functor } from "@jwdutra/core";
 import * as React from "react";
 
 export interface CircleMarkerProps {

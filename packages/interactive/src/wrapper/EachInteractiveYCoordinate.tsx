@@ -1,5 +1,5 @@
 import * as React from "react";
-import { strokeDashTypes } from "@react-stockcharts3/core";
+import { strokeDashTypes } from "@jwdutra/core";
 import { isHover, saveNodeType } from "../utils";
 import { ClickableShape, InteractiveYCoordinate } from "../components";
 

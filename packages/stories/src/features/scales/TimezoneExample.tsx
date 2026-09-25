@@ -9,7 +9,7 @@ import {
     timeFormat,
     withDeviceRatio,
     withSize,
-} from "react-stockcharts3";
+} from "@jwdutra/react-stockcharts";
 
 interface IOHLCData {
     date: Date;

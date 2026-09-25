@@ -1,4 +1,4 @@
-import { ChartContext, ChartContextType, strokeDashTypes } from "@react-stockcharts3/core";
+import { ChartContext, ChartContextType, strokeDashTypes } from "@jwdutra/core";
 import * as React from "react";
 import { Axis } from "./Axis";
 

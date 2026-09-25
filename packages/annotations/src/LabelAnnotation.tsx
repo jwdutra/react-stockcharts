@@ -1,4 +1,4 @@
-import { functor } from "@react-stockcharts3/core";
+import { functor } from "@jwdutra/core";
 import { ScaleContinuousNumeric } from "d3-scale";
 import * as React from "react";
 

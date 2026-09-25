@@ -1,5 +1,5 @@
 {
-    "name": "@react-stockcharts3/stories",
+    "name": "@jwdutra/stories",
     "version": "1.3.2",
     "description": "Stories for react financial charts",
     "private": true,
@@ -16,6 +16,6 @@
         "d3-time-format": "^3.0.0",
         "react": "^18.3.0",
         "react-dom": "^18.3.0",
-        "react-stockcharts3": "file:../charts"
+        "@jwdutra/react-stockcharts": "file:../charts"
     }
 }

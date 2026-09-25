@@ -1,4 +1,4 @@
-import { ChartContext, ChartContextType, last } from "@react-stockcharts3/core";
+import { ChartContext, ChartContextType, last } from "@jwdutra/core";
 import { interpolateNumber } from "d3-interpolate";
 import { ScaleContinuousNumeric } from "d3-scale";
 import * as React from "react";
